@@ -446,3 +446,24 @@ d={'one':[1,2,3], 'two':['Jonas', 'Lune', 'Sam']}
 # a=a^b
 # print(a,b)
 #----------------
+#--------------------Recursion Factorial-----------
+# def factorial(x):
+#         if x <0:
+#             return -1
+#         elif x<2:
+#             return 1
+#         else:
+#             return x*factorial(x-1)
+# print(factorial(4))
+#-----------------------Prime Factors--------------
+def prime_factors(x):
+    factors = list()
+    divisor = 2
+    while(x >= divisor):
+        if x%divisor == 0:
+            factors.append(divisor)
+            x = x/divisor
+        else:
+            divisor += 1
+    return factors
+print(prime_factors(12)) 
