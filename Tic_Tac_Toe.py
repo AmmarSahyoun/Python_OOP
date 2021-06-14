@@ -76,4 +76,10 @@ while game:
     PcPlay(board,board2,pos1)
     winGame(board2)
     move += 1 
-       
+#-------------------------chess sqr color-------------------------------------------
+# square = input('Enter a chess square identifier (e.g. e5): ')
+# # ord() returns the Unicode code point.  The code point for 'a' is 97,'b' is 98
+# if (ord(square[0]) + int(square[1])) % 2:
+#     print(f'\n{square} is White', end='')
+# else:
+#     print(f'\n{square} is Black', end='')   
