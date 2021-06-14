@@ -11,12 +11,12 @@ class Person:
         print(f"I am{self.age} years old.")
 
 class Superhero(Person):
-    def __init__(self, name, age, occupation, secret_identify, nemesis):
+    def __init__(self, name, age, occupation, secret_identity, nemesis):
         super().__init__(name, age, occupation)
-        self.secret_identify = secret_identify
+        self.secret_identify = secret_identity
         self.nemesis = nemesis
     def reveal_secret_identity(self):
-        print('the secret', self.secret_identify)
+        print('the secret', self.secret_identity)
     def say_nemesis(self):
         print('My nemesis is', self.nemesis )
     def say_hello(self):
@@ -28,3 +28,7 @@ class Superhero(Person):
     def old_say_age(self):
         super().say_age()
 
+hero = Superhero("Storm", "30", "Queen of Wakanda", "Ororo Munroe", "Shadow King")
+hero.old_say_age()
+#hero.say_hello()
+#print(help(Superhero))
