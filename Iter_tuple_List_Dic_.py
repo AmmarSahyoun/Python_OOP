@@ -468,3 +468,103 @@
 # else:
 # 	print("Tie!")
 #-------------------------------------------------------------------------
+#d={'one':[1,2,3], 'two':['Jonas', 'Lune', 'Sam']}
+
+# d.update({'one':5})
+# d.update({'three':['Ammar']})
+# print(d)
+#---------------Change key name ------------------------------
+# d['g'] = d['one']
+# del d['one']
+# print(d)
+#-----------------------Create dict from list---------------------------
+# names = ['Sam', 'Kale', 'Anna', 'Paul']
+# series1 = {names.index(x): x for x in (names)}
+# print(series1)
+#------------------------Create dict and get values as list---------------------------
+# f = {x: x*2 for x in range(5)}
+# print(f)
+# print([f.get(i) for i in f ])  # get values
+#--------------------Create Dict from list of names-------------------
+# my_dict = {}
+# names = ['Jonas', 'Lune', 'Pep']
+# for x in range(len(names)):
+#     my_dict[f"child{x}"] = names[x]
+# print(my_dict)
+#---------------loop through key and calues----------------------
+# colors = {
+#     "white": (255, 255, 255),
+#     "grey": (128, 128, 128),
+#     "red": (255, 0, 0),
+#     "green": (0, 128, 0)
+#     }
+# for col, rgb in colors.items():
+#     print(col, ":", rgb)
+#-------------------loop on Keys and print values---------------------------
+# d  ={}
+# d['1'] = [1,2]
+# d['2'] = [2,1]
+# for i in d.keys():
+#     print(d[i][1],end="")
+#---------------------Q----------------------
+# d = {'one':'two', 'three':'one','two':'three'}
+# v = d['three']
+# for k in range(len(d)):
+#     v = d[v]
+# print(v)
+#--------------------------
+#print(4**0.5)  #= 4 sqrt 
+#----------------------------
+# f = [i for i in range(-1,-2)]
+# print(f)
+#---------------------
+# l = [[x for x in range(3)] for y in range(3)]
+# for r in range(3):
+#     for c in range(3):
+#         if l[r][c] % 2 !=0:
+#             print('#')
+#-------------
+# m =[1,2]
+# for v in range(2):
+#     m.insert(-1,m[v])
+# print(m)
+#---------------------
+#print(1//5+1/5)
+#-----------------
+# x=1
+# y=2
+# x,y,z = x,x,y
+# z,y,z = x,y,z 
+# print(x,z,y)
+#--------------------
+# a = 1
+# b=0
+# a = a^b
+# b=a^b
+# a=a^b
+# print(a,b)
+#----------------
+# def f1(a):
+#     return None
+# def f2(a):        #---------!!
+#     return f1(a) * f1(a)
+
+# print(f2(2))
+#------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
