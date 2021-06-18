@@ -26,7 +26,6 @@
 # print(text)
 #------------------IBAN validator-------------------
 
-
 iban = input("Enter IBAN, please: ")
 iban = iban.replace(' ','')
 
