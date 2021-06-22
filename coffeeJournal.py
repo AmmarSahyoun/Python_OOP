@@ -81,8 +81,31 @@ def perform_action(choice, coffee):
         enter_coffee(coffee)
     elif choice == 3:
         quit(coffee)
+   
+    
+
+def enter_coffee(coffee):
+    print()
+    coffee.roaster = input("Enter the name of the roaster: ")
+    coffee.country = input("Enter the country of origin: ")
+    coffee.region = input("Enter the region: ")
+    coffee.stars = int(input("Enter the number of stars '*' (1-4): ")) * "*"
+    print()
+    coffee.add_coffee()
+
+def quit(coffee):
+    global run_loop
+    coffee.save()
+    run_loop = False
 
 
+run_loop = True
+
+my_coffee = CoffeeJournal("test_journal1.csv")
+
+while run_loop:
+  choice = main_menu()
+  perform_action(choice, my_coffee)
 
 
 # **********************************************
