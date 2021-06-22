@@ -66,6 +66,22 @@ class CoffeeJournal:
     def add_coffee(self):
         self._new_coffee.append([self._roaster, self._country, self._region, self._stars])
 
+def main_menu():
+    print("Coffess of the World")
+    print("\t1. Show Coffee")
+    print("\t2. Add Coffee")
+    print("\t3. Save and Quit")
+    choice = int(input("Enter the number of your selection: "))
+    return choice
+
+def perform_action(choice, coffee):
+    if choice == 1:
+        coffee.show_coffee()
+    elif choice == 2:
+        enter_coffee(coffee)
+    elif choice == 3:
+        quit(coffee)
+
 
 
 
@@ -73,20 +89,20 @@ class CoffeeJournal:
 # code for testing your script
 # **********************************************
 
-test_object3 = CoffeeJournal("test_journal1.csv")
-test_object3.roaster = "Peace River"
-test_object3.country = "Rawanda"
-test_object3.region = "Remera"
-test_object3.stars = "***"
-test_object3.add_coffee()
-test_object3.save()
-test_object3._old_coffee = test_object3.load_coffee()
-test_object3._roaster = ""
-test_object3._country = ""
-test_object3._region = ""
-test_object3._stars = ""
-test_object3._new_coffee = []
-test_object3.show_coffee()
+# test_object3 = CoffeeJournal("test_journal1.csv")
+# test_object3.roaster = "Peace River"
+# test_object3.country = "Rawanda"
+# test_object3.region = "Remera"
+# test_object3.stars = "***"
+# test_object3.add_coffee()
+# test_object3.save()
+# test_object3._old_coffee = test_object3.load_coffee()
+# test_object3._roaster = ""
+# test_object3._country = ""
+# test_object3._region = ""
+# test_object3._stars = ""
+# test_object3._new_coffee = []
+# test_object3.show_coffee()
 
 
 # test_object2 = CoffeeJournal("test_journal1.csv")
