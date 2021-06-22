@@ -1,5 +1,6 @@
 import csv
 
+
 class CoffeeJournal:
     def __init__(self, file):
         self._file = file
@@ -7,8 +8,17 @@ class CoffeeJournal:
         self._country = ""
         self._region = ""
         self._stars = ""
-        self._new_coffee = [] # Has been read from journal
         self._old_coffee = self.load_coffee()
+        self._new_coffee = []
+
+    def load_coffee(self):
+        coffee = []
+        with open(self._file) as f:
+            reader = csv.reader(f, delimiter=',')
+            for row in reader:
+                coffee.append(row)
+        return coffee
+
     @property
     def roaster(self):
         return self._roaster
@@ -34,46 +44,53 @@ class CoffeeJournal:
     def stars(self, new_stars):
         self._stars = new_stars
 
-    def load_coffee(self):
-        coffee = []
-        with open(self._file) as f:
-            reader = csv.reader(f, delimiter=',')
-            for row in reader:
-                coffee.append(row)
-        return coffee
+    def save(self):
+        with open(self._file, 'a') as f:
+            writer = csv.writer(f)
+            writer.writerows(self._new_coffee)
+
+    def show_coffee(self):
+        print()
+        if len(self._old_coffee) < 2 and len(self._new_coffee) == 0:
+            print("Enter a coffee first")
+        elif len(self._old_coffee) < 2 and len(self._new_coffee) == 0:
+            for row in self._old_coffee:
+                print(f"{row[0]:15} {row[1]:15} {row[2]:15}  {row[3]:15}")
+        else:
+            for row in self._old_coffee:
+                print(f"{row[0]:15} {row[1]:15} {row[2]:15}  {row[3]:15}")
+            for row in self._new_coffee:
+                print(f"{row[0]:15} {row[1]:15} {row[2]:15}  {row[3]:15}")
+        print()
 
     def add_coffee(self):
         self._new_coffee.append([self._roaster, self._country, self._region, self._stars])
 
-    def save(self):
-        with open(self._file, 'a') as f: #in append mode
-            writer = csv.writer(f)
-            writer.writerows(self._new_coffee)
-    
-    def show_coffee(self):
-        print()
-        # if there is no information on any coffee, tell the user to add one
-        if len(self._old_coffee) < 2 and len(self._new_coffee) == 0:
-            print("Enter a coffee first")
-        # if there is information in the CSV but not new coffee print the old coffee
-        elif len(self._old_coffee) > 2 and len(self._new_coffee) == 0:
-            for row in self._old_coffee:
-                print(f"{row[0]:13} {row[1]:13} {row[2]:13}  {row[3]:13}")
-        # print both the old coffee and the new coffee
-        else:
-            for row in self._old_coffee:
-                print(f"{row[0]:13} {row[1]:13} {row[2]:13}  {row[3]:13}")
-            for row in self._new_coffee:
-                print(f"{row[0]:13} {row[1]:13} {row[2]:13}  {row[3]:13}")
-        print()
+
 
 
 # **********************************************
 # code for testing your script
 # **********************************************
 
-test_object2 = CoffeeJournal("test_journal1.csv")
-test_object2.show_coffee()
+test_object3 = CoffeeJournal("test_journal1.csv")
+test_object3.roaster = "Peace River"
+test_object3.country = "Rawanda"
+test_object3.region = "Remera"
+test_object3.stars = "***"
+test_object3.add_coffee()
+test_object3.save()
+test_object3._old_coffee = test_object3.load_coffee()
+test_object3._roaster = ""
+test_object3._country = ""
+test_object3._region = ""
+test_object3._stars = ""
+test_object3._new_coffee = []
+test_object3.show_coffee()
+
+
+# test_object2 = CoffeeJournal("test_journal1.csv")
+# test_object2.show_coffee()
 
 
 # test_object = CoffeeJournal("test_journal1.csv")
