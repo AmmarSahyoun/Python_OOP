@@ -7,9 +7,8 @@ class CoffeeJournal:
         self._country = ""
         self._region = ""
         self._stars = ""
-        self._new_coffee = []
+        self._new_coffee = [] # Has been read from journal
         self._old_coffee = self.load_coffee()
-
     @property
     def roaster(self):
         return self._roaster
@@ -42,6 +41,14 @@ class CoffeeJournal:
             for row in reader:
                 coffee.append(row)
         return coffee
+
+    def add_coffee(self):
+        self._new_coffee.append([self._roaster, self._country, self._region, self._stars])
+
+    def save(self):
+        with open(self._file, 'a') as f: #in append mode
+            writer = csv.writer(f)
+            writer.writerows(self._new_coffee)
 
 test_object = CoffeeJournal("test_journal1.csv")
 print(test_object._old_coffee)
