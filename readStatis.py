@@ -15,6 +15,16 @@ class Statistics:
                     self._newData.append(float(y))
         self.mean()
 
+    def count_different(self):
+        _ = set(self._newData)
+        print(f"The count of unduplicated intgers are: {len(_)}")
+
+    def count_occurrences(self):
+        D = {}
+        {int(_): 1 if int(_) not in D and not D.update({int(_): 1})
+        else D[int(_)] + 1 if not D.update({int(_): D[int(_)] + 1}) else 1 for _ in self._newData}
+        print("The frequency of the numbers: \n", D)
+
     def mean(self):
         self.count_different()
         self._mu = sum(self._newData) / len(self._newData)
