@@ -1,4 +1,5 @@
 import os, math
+
 class Statistics:
     def __init__(self, path):
         self.path = path
@@ -48,7 +49,6 @@ class Statistics:
             self.read()
         else:
             print('No file Found!')
-
 
 letsGo_A = Statistics('file_10000integers_A.txt')
 # https://www.mathsisfun.com/data/standard-deviation-formulas.html
