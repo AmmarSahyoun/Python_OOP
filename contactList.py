@@ -16,3 +16,13 @@ class Contacts:
       elif self.view == 'quit':
         print('\nClosing the contact list...\n')
         break
+    def show_list(self):
+        pass
+
+    def show_info(self):
+        pass
+
+    def add_contact(self):
+        pass
+contacts = Contacts()
+contacts.display()
