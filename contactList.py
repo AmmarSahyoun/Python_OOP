@@ -4,6 +4,7 @@ class Contacts:
     self.contact_list = []
     self.choice = None
     self.index = None
+
   def display(self):
     while True:
       if self.view == 'list':
@@ -16,24 +17,29 @@ class Contacts:
       elif self.view == 'quit':
         print('\nClosing the contact list...\n')
         break
-    def show_list(self):
-        print()
-        if len(self.contact_list) == 0:
-            self.choice = input('(A)dd a new contact \n(Q)uit \n> ').lower()
-        else:
-            self.view = 'quit'
-            self.handle_choice()
-    def show_info(self):
-        pass
+  def show_list(self):
+      print()
+      if len(self.contact_list) == 0:
+          self.choice = input('(A)dd a new contact \n(Q)uit \n> ').lower()
+      else:
+        self.view = 'quit'
+      self.handle_choice()
+  def show_info(self):
+      pass
 
-    def add_contact(self):
-        pass
+  def add_contact(self):
+    self + Information()  #overload the function 
+    self.view = 'list'
 
-    def handle_choice(self):
-        if self.choice == 'q':
-            self.choice = ' quit'
-        elif self.choice == 'a' and self.view =='list':
-            self.view = 'add'
+  def __add__(self, new_contact):
+    self.contact_list.append(new_contact)
+
+  def handle_choice(self):
+      if self.choice == 'q':
+          self.view = ' quit'
+      elif self.choice == 'a' and self.view =='list':
+          self.view = 'add'
+
 class Information:
   def __init__(self):
     self.first_name = input('Enter their first name: ')
@@ -46,3 +52,4 @@ class Information:
 
 contacts = Contacts()
 contacts.display()
+print(len(contacts.contact_list))
