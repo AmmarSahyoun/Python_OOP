@@ -25,7 +25,9 @@ class Contacts:
         self.view = 'quit'
       self.handle_choice()
   def show_info(self):
-      pass
+    self.contact_list[self.index].display_info()
+    self.choice = input('\n(C)ontact List \n(P)revious contact \n(N)ext contact \n(Q)uit \n> ').lower()
+    self.handle_choice()
 
   def add_contact(self):
     self + Information()  #overload the function 
@@ -39,7 +41,12 @@ class Contacts:
           self.view = ' quit'
       elif self.choice == 'a' and self.view =='list':
           self.view = 'add'
-
+      elif self.choice.isnumeric() and self.view == 'list':
+        index = int(self.choice) - 1
+        if index >= 0 and index < len(self.contact_list):
+          self.index = index
+          self.view = 'info'
+          
 class Information:
   def __init__(self):
     self.first_name = input('Enter their first name: ')
