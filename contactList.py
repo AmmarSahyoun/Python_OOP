@@ -36,7 +36,7 @@ class Contacts:
     self.contact_list.append(new_contact)
 
   def add_contact(self):
-    self + Information()
+    self + Information()  #or self.__add__(Information()) 
     self.view = 'list'
 
   def handle_choice(self):
