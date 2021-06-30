@@ -46,7 +46,13 @@ class Contacts:
         if index >= 0 and index < len(self.contact_list):
           self.index = index
           self.view = 'info'
-          
+      elif self.choice == 'c' and self.view == 'info':
+        self.view = 'list'
+      elif self.choice == 'n' and self.view == 'info':
+        self.index = self.index + 1 if self.index + 1 < len(self.contact_list) else 0
+      elif self.choice == 'p' and self.view == 'info':
+        self.index = self.index - 1 if self.index - 1 >= 0 else len(self.contact_list) - 1
+        
 class Information:
   def __init__(self):
     self.first_name = input('Enter their first name: ')
