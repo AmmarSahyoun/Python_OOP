@@ -38,3 +38,17 @@ class Substitute:
         file = open(self.answer_file, 'w')
         file.writelines(self.words)
         file.close()
+
+
+class Stars(Substitute):
+    def swap_words(self):
+        self.string_to_list()
+        for line in self.words:
+            for i in range(len(line)):
+                if (i + 1) % 3 == 0:
+                    word = line[i]
+                    line[i] = '*' * len(word)
+        self.list_to_string()
+        file = open(self.answer_file, 'w')
+        file.writelines(self.words)
+        file.close()
