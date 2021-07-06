@@ -17,3 +17,24 @@ class Substitute:
             for line in lines:
                 words.append(line.split())
         self.words = words
+
+    def list_to_string(self):
+        '''Convert 2D list back into a
+        string with newline characters'''
+        lines = []
+        for line in self.words:
+            lines.append(' '.join(line))
+        string = '\n'.join(lines)
+        self.words = string
+
+    def swap_words(self):
+        self.string_to_list()
+        for line in self.words:
+            for i in range(len(line)):
+                if (i + 1) % 5 == 0:
+                    word = line[i]
+                    line[i] = 'HELLO'
+        self.list_to_string()
+        file = open(self.answer_file, 'w')
+        file.writelines(self.words)
+        file.close()
