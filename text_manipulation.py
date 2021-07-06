@@ -39,7 +39,8 @@ class Substitute:
         file.writelines(self.words)
         file.close()
 
-
+'''The class Stars which is a child class of Substitute, will replace every third word 
+      by a series of *  '''
 class Stars(Substitute):
     def swap_words(self):
         self.string_to_list()
@@ -52,3 +53,9 @@ class Stars(Substitute):
         file = open(self.answer_file, 'w')
         file.writelines(self.words)
         file.close()
+
+# h = Substitute(source_file, answer_file)
+# h.swap_words()
+
+s = Stars(source_file, answer_file)
+s.swap_words()
