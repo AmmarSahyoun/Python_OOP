@@ -18,3 +18,9 @@ class Engine:
         print('Vroom, vroom!')
     def info(self): # the composition is a one way street, the engine class has no access
         self.describe() # to component class Car! But the Car has access to attr&meth on Engine class
+my_engine = Engine("V8", 5.8, 326, 344)
+my_car = Car("De Tomaso", "Pantera", 1979, my_engine)
+my_car.describe()
+my_car.engine.ignite()
+my_car.start()
+#my_car.engine.info()  #result error 'Engine' object has no attribute 'describe'
