@@ -24,3 +24,13 @@ my_car.describe()
 my_car.engine.ignite()
 my_car.start()
 #my_car.engine.info()  #result error 'Engine' object has no attribute 'describe'
+
+'''          Composition versus Inheritance
+Use inheritance if there is an “is a” relationship, 
+and use composition if there is a “has a” relationship.
+For example, you have the Vehicle class and you want to make a Car class. 
+Ask yourself if a car has a vehicle or if a car is a vehicle. A car is a vehicle; 
+therefore you should use inheritance. Now imagine that you have a Phone class and 
+you want to represent an app for the phone. Ask yourself if a phone is an app or if 
+a phone has an app. A phone has an app; therefore you should use composition.
+'''
