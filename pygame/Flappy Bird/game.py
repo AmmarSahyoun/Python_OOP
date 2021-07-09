@@ -49,3 +49,28 @@ class Game:
     def rotate_bird(self):
       new_bird = pygame.transform.rotozoom(self.bird,-self.bird_movement * 3, 1)
       return new_bird
+
+    def flap(self):
+      self.bird_movement = 0
+      self.bird_movement -= 2.5
+
+    def add_pipe(self):
+      random_pipe_pos = random.choice(self.pipe_height)
+      bottom_pipe = self.pipe.get_rect(midtop = (600, random_pipe_pos))
+      top_pipe = self.pipe.get_rect(midbottom = (600, random_pipe_pos - 211))
+      self.pipes.append(bottom_pipe)
+      self.pipes.append(top_pipe)
+
+    def move_pipes(self):
+      for pipe in self.pipes:
+        pipe.centerx -= 1.75
+        if pipe.centerx <= -40:
+          self.pipes.remove(pipe)
+
+    def show_pipes(self, screen):
+      for pipe in self.pipes:
+        if pipe.bottom >= 700:
+          screen.blit(self.pipe, pipe)
+        else:
+          flip_pipe = pygame.transform.flip(self.pipe, False, True)
+          screen.blit(flip_pipe, pipe)
