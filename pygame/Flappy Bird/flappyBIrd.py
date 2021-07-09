@@ -28,11 +28,23 @@ while True:
             
       if event.key == pygame.K_SPACE and game.active == False:
         game.restart()
-        
+
   game.show_background(screen)
       
 
+  if game.active:
+    game.show_bird(screen)
+    game.update_bird()
+    game.move_pipes()
+    game.show_pipes(screen)
+    game.check_collision()
+    game.update_score()
+    game.show_score('playing', screen, (255, 255, 255))
+  else:
+    game.game_over(screen, (255,255,255))
 
-      
+  game.show_ground(screen)
+  game.move_ground()
+
   pygame.display.update()
   clock.tick(120)
