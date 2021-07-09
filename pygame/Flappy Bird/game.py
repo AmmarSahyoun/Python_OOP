@@ -37,3 +37,15 @@ class Game:
       self.ground_position -= 1
       if self.ground_position <= -400:
         self.ground_position = 0
+
+    def show_bird(self, screen):
+      screen.blit(self.rotated_bird, self.bird_rect)
+
+    def update_bird(self):
+      self.bird_movement += self.gravity
+      self.rotated_bird = self.rotate_bird()
+      self.bird_rect.centery += self.bird_movement
+      
+    def rotate_bird(self):
+      new_bird = pygame.transform.rotozoom(self.bird,-self.bird_movement * 3, 1)
+      return new_bird
