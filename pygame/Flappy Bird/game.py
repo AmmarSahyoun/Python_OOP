@@ -103,3 +103,18 @@ class Game:
         high_score_surface = self.font.render('High Score: {:d}'.format(int(self.high_score)), True, color)
         high_score_rect = high_score_surface.get_rect(center=(200, 610))
         screen.blit(high_score_surface, high_score_rect)
+    
+    def game_over(self, screen, color):
+      self.update_high_score()
+      self.show_score('game_over', screen, color)
+
+    def update_high_score(self):
+      if self.score > self.high_score:
+        self.high_score = self.score
+
+    def restart(self):
+      self.active = True
+      del self.pipes[:]
+      self.bird_rect.center = (70, 180)
+      self.bird_movement = 0
+      self.score = 0
