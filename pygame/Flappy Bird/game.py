@@ -27,3 +27,13 @@ class Game:
 
     def show_background(self, screen):
       screen.blit(self.background, (0,0))
+
+    
+    def show_ground(self, screen):
+      screen.blit(self.ground, (self.ground_position, 650))
+      screen.blit(self.ground, (self.ground_position + 470, 650))
+
+    def move_ground(self):
+      self.ground_position -= 1
+      if self.ground_position <= -400:
+        self.ground_position = 0
