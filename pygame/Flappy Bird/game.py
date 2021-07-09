@@ -8,6 +8,16 @@ class Game:
       self.pipe = pygame.image.load(pipe_img).convert_alpha()
       self.background = pygame.image.load(background_img).convert_alpha()
       self.ground = pygame.image.load(ground_img).convert()
+      self.ground_position = 0
+      self.active = True
+      self.gravity = 0.05
+      self.bird_movement = 0
+      self.rotated_bird = pygame.Surface((0,0))
+      self.pipes = []
+      self.pipe_height = [280, 425, 562]
+      self.score = 0
+      self.font = pygame.font.SysFont(None, 48)
+      self.high_score =0d = pygame.image.load(ground_img).convert()
 
     def resize_images(self):
       self.bird = pygame.transform.scale(self.bird, (51, 34))
