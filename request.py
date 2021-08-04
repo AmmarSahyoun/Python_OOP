@@ -15,3 +15,4 @@ json_response = response.json()
 repository = json_response['items'][0]
 print(f'Repository name: {repository["name"]}') 
 print(f'Repository description: {repository["description"]}')  
+
