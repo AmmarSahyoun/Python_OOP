@@ -7,7 +7,11 @@ class Vector:
 
     def __getattr__(self, name):  # allow access private attributes
         private_name = f"_{name}"
-        return getattr(self, private_name)
+        try:
+            return self.__dict__[private_name]
+        except KeyError:
+            raise AttributeError(f"{self!r} object has no attribute {name!r}")
+
 
     def __setattr__(self, name, value):
         raise AttributeError(f"Can't set attribute {name!r}")
