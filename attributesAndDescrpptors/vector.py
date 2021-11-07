@@ -1,11 +1,13 @@
 
 class Vector:
-    """An n-dimensional vector."""
+    """An n-dimensional vector with Immutable attributes"""
 
+    """ Immutable Attributes woth Read-only Properties"""
     def __init__(self, **components):
         private_components = {f"_{k}": v for k, v in components.items()}
         self.__dict__.update(private_components)
 
+    """ Intercept attribute access by override __getattr__invoked after failed attribute lookups"""
     def __getattr__(self, name):
         private_name = f"_{name}"
         try:
@@ -13,23 +15,27 @@ class Vector:
         except KeyError:
             raise AttributeError(f"{self!r} object has no attribute {name!r}")
 
+
+    """ Prevent write access to our attributes by overriding __setattr__"""
     def __setattr__(self, name, value):
         raise AttributeError(f"Can't set attribute {name!r}")
 
+
+    """ Prevent attributes delete by overriding __delattr__"""
     def __delattr__(self, name):
         raise AttributeError(f"Can't delete attribute {name!r}")
+
 
     def __repr__(self):
         return "{}({})".format(type(self).__name__, ", ".join("{k}={v}".format(k=k, v=v,)
                                                 for k, v in self._args().items() ))
-
+    """ return mapping of the constructor argument names """
     def _args(self):
         return {k[1:]: v for k, v in self.__dict__.items()}
 
 
 class ColoredVector(Vector):
-    """ Mutable color channel attributes by override __setattr__ , but in the same time the vector
-    components remain immutable and raise AttributeError if we attempt to modify their values   """
+    """ Mutable color channel attributes by override __setattr__  """
 
     COLOR_INDEXES = ("red", "green", "blue")
 
@@ -59,3 +65,5 @@ class ColoredVector(Vector):
         del args["color"]
         return args
 
+""" It is better to prefer composition over inheritance because Vector class is not 
+    deliberately designed as a parent class to the ColoredVector class """
