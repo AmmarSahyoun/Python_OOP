@@ -7,13 +7,20 @@ class Positive:
     def __init__(self):
         self._instance_data = WeakKeyDictionary()
 
+    # for setting descriptor names
+    def __set_name__(self, owner, name):
+        self._name = name
+
     def __get__(self, instance, owner):
+        if instance is None:
+            return self
         return self._instance_data[instance]
 
     def __set__(self, instance, value):
         if value <= 0:
-            raise ValueError(f"Value {value} is not positive")
+            raise ValueError(f"{self._name} {value} is not positive")
         self._instance_data[instance] = value
 
     def __delete__(self, instance):
-        raise AttributeError("Cannot delete attribute")
+        raise AttributeError(f"Cannot delete attribute {self._name}")
+
