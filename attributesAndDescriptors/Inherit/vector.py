@@ -1,6 +1,6 @@
 
 class Vector:
-    """An n-dimensional vector with Immutable attributes"""
+    """An n-dimensional Vector with Immutable attributes"""
 
     """ Immutable Attributes woth Read-only Properties"""
     def __init__(self, **components):
@@ -65,5 +65,5 @@ class ColoredVector(Vector):
         del args["color"]
         return args
 
-""" It is better to prefer composition over inheritance (in other work ColoredVector should contain vector
+""" It is better to prefer composition over inheritance (in other word ColoredVector should contain Vector
     than to inherit from Vector)because Vector class is not deliberately designed as a parent class to the ColoredVector class """
