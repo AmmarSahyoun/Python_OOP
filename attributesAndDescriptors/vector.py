@@ -65,5 +65,5 @@ class ColoredVector(Vector):
         del args["color"]
         return args
 
-""" It is better to prefer composition over inheritance because Vector class is not 
-    deliberately designed as a parent class to the ColoredVector class """
+""" It is better to prefer composition over inheritance (in other work ColoredVector should contain vector
+    than to inherit from Vector)because Vector class is not deliberately designed as a parent class to the ColoredVector class """
