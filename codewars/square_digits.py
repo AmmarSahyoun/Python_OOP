@@ -3,8 +3,8 @@
 
 
 def square_digits(num):
-    sq = [int(i) * int(i) for i in str(num)]
-    return ''.join([str(i) for i in sq ])
+    sq = [str(int(i) * int(i)) for i in str(num)]
+    return ''.join(sq)
 
 
 a = 9119
