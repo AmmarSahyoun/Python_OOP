@@ -14,7 +14,7 @@ class MyComputerBuilder(AbsBuilder):
         pass
 
     def install_hard_drive(self):
-        self._computer.hard_drive = 'SSD'
+        self._computer.hard_drive = 'SSD ram'
 
     def install_video_card(self):
         self._computer.video_card = 'GeForce GTX'

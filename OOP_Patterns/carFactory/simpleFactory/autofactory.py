@@ -4,6 +4,7 @@ import autos
 class AutoFactory(object):
     autos = {}  # Key = car model name, Value = class for the car
 
+
     def __init__(self):
         self.load_autos()
 
